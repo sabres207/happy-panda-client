@@ -1,5 +1,6 @@
 package happy_panda.client;
 
+import android.content.Intent;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -65,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
 		newEvent.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
 			@Override
 			public boolean onMenuItemClick(MenuItem menuItem) {
-				Toast.makeText(MainActivity.this, "Clicked item", Toast.LENGTH_SHORT).show();
+				Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+				startActivity(intent);
 				return true;
 			}
 		});
