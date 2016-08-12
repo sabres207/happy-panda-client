@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -56,7 +57,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 		v.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-//				Toast.makeText(parent.getContext(), "Clicked item with title: " + vh.event.title, Toast.LENGTH_SHORT).show();
+				Toast.makeText(parent.getContext(), "Clicked item", Toast.LENGTH_SHORT).show();
 			}
 		});
 

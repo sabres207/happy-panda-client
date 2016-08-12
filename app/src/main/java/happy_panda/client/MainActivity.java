@@ -1,12 +1,18 @@
 package happy_panda.client;
 
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 //import android.widget.ProgressBar;
 
 public class MainActivity extends AppCompatActivity {
@@ -49,6 +55,21 @@ public class MainActivity extends AppCompatActivity {
 
 //		progressBar.setVisibility(View.GONE);
 
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuItem newEvent = menu.add("New Event");
+		newEvent.setIcon(R.drawable.checked_user);
+		newEvent.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+		newEvent.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+			@Override
+			public boolean onMenuItemClick(MenuItem menuItem) {
+				Toast.makeText(MainActivity.this, "Clicked item", Toast.LENGTH_SHORT).show();
+				return true;
+			}
+		});
+		return true;
 	}
 
 
