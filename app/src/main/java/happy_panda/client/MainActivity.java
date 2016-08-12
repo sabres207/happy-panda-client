@@ -59,8 +59,18 @@ public class MainActivity extends AppCompatActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuItem newEvent = menu.add("New Event");
+		MenuItem newEvent = menu.add("Profile");
 		newEvent.setIcon(R.drawable.checked_user);
+		newEvent.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+		newEvent.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+			@Override
+			public boolean onMenuItemClick(MenuItem menuItem) {
+				Toast.makeText(MainActivity.this, "Clicked item", Toast.LENGTH_SHORT).show();
+				return true;
+			}
+		});
+		newEvent = menu.add("Stats");
+		newEvent.setIcon(R.drawable.graph);
 		newEvent.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 		newEvent.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
 			@Override
