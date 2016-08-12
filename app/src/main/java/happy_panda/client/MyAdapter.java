@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,11 +27,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 	// you provide access to all the views for a data item in a view holder
 	public static class ViewHolder extends RecyclerView.ViewHolder {
 		public ImageView imageView;
+		public TextView score;
 		public Dish dish;
 
 		public ViewHolder(View v) {
 			super(v);
 			imageView = (ImageView) itemView.findViewById(R.id.dish);
+			score = (TextView) itemView.findViewById(R.id.score);
 		}
 	}
 
@@ -67,13 +70,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 		// - replace the contents of the view with that element
 		final Dish dish = data[position];
 		holder.dish = dish;
+		holder.score.setText(""+dish.score+'%');
 
 
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
 				try {
-					try (InputStream inputStream = new URL(dish.getThumbnail()).openConnection().getInputStream()) {
+					try (InputStream inputStream = new URL(dish.thumbnail).openConnection().getInputStream()) {
 						final Bitmap bmp = BitmapFactory.decodeStream(inputStream);
 						new Handler(Looper.getMainLooper()).post(new Runnable() {
 							@Override

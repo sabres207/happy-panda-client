@@ -38,7 +38,13 @@ public class MainActivity extends AppCompatActivity {
 		adapter = new MyAdapter(new Dish[0]);
 		recyclerView.setAdapter(adapter);
 
-		adapter = new MyAdapter(new Dish[]{new Dish(), new Dish(), new Dish(), new Dish(), new Dish(), new Dish(), new Dish(), new Dish()});
+		adapter = new MyAdapter(new Dish[]{
+				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 100),
+				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 80),
+				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 50),
+				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 40),
+				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 30)
+		});
 		recyclerView.setAdapter(adapter);
 
 //		progressBar.setVisibility(View.GONE);
