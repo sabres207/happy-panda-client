@@ -1,6 +1,7 @@
 package happy_panda.client;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -10,8 +11,11 @@ import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.AxisBase;
@@ -173,4 +177,18 @@ public class DishActivity extends AppCompatActivity {
 		}
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuItem newEvent = menu.add("Mark as Eaten");
+		newEvent.setIcon(R.drawable.check);
+		newEvent.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+		newEvent.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+			@Override
+			public boolean onMenuItemClick(MenuItem menuItem) {
+				Toast.makeText(DishActivity.this, "Clicked item", Toast.LENGTH_SHORT).show();
+				return true;
+			}
+		});
+		return true;
+	}
 }
