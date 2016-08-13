@@ -9,14 +9,14 @@
 		android:id="@+id/height"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:hint="Height"
+		android:hint="Height (cm)"
 		android:inputType="number"/>
 
 	<EditText
 		android:id="@+id/weight"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:hint="Weight"
+		android:hint="Weight (kg)"
 		android:inputType="number"/>
 
 	<EditText
@@ -32,39 +32,54 @@
 		android:layout_height="wrap_content"
 		android:layout_marginTop="10dp"
 		/>
+
 	<FrameLayout
 		android:layout_width="match_parent"
 		android:layout_height="1dp"
-		android:background="@color/colorPrimaryDark"
+		android:layout_marginBottom="10dp"
 		android:layout_marginTop="10dp"
-		android:layout_marginBottom="10dp"/>
+		android:background="@color/colorPrimaryDark"/>
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Requirement:"/>
+
 	<CheckBox
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:text="Glutten free"/>
+
 	<CheckBox
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:text="Peanut free"/>
+
 	<FrameLayout
 		android:layout_width="match_parent"
 		android:layout_height="1dp"
-		android:background="@color/colorPrimaryDark"
+		android:layout_marginBottom="10dp"
 		android:layout_marginTop="10dp"
-		android:layout_marginBottom="10dp"/>
-	<TextView
+		android:background="@color/colorPrimaryDark"/>
 
+	<TextView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:text="Enrichment:"/>
+
 	<CheckBox
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:text="Calcium"/>
+
 	<CheckBox
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:text="Iron"/>
 
+	<CheckBox
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Protein"/>
 
 </LinearLayout>

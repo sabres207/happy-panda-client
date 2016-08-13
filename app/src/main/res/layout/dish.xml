@@ -17,13 +17,14 @@
 		android:layout_height="wrap_content"
 		android:layout_marginTop="10dp"
 		android:text="Recipe"
-		android:linksClickable="true"/>
+		android:linksClickable="true"
+		android:textSize="30dp"/>
 
 	<TextView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="20dp"
-		android:text="Percentage of the daily recommended nutrients:"/>
+		android:text="Recommended nutrients (daily %):"/>
 
 	<com.github.mikephil.charting.charts.BarChart
 		android:id="@+id/chart"

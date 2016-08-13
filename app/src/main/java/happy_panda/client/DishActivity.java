@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -13,6 +14,7 @@ import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -63,6 +65,15 @@ public class DishActivity extends AppCompatActivity {
 				}
 			}
 		}).start();
+
+		imageView.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				android.content.Intent i = new android.content.Intent(Intent.ACTION_VIEW);
+				i.setData(Uri.parse(getIntent().getDish().recepieLink));
+				startActivity(i);
+			}
+		});
 
 		TextView recipeLinkTextView = (TextView) findViewById(R.id.recipeLink);
 		recipeLinkTextView.setMovementMethod(LinkMovementMethod.getInstance());
