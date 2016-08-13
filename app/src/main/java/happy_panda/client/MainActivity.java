@@ -47,9 +47,9 @@ public class MainActivity extends AppCompatActivity {
 
 		adapter = new MyAdapter(new Dish[]{
 				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 100, "Pad Thai", "http://www.peta.org/recipes/easy-vegan-pad-thai/"),
-				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 80, "Pad Thai", "http://www.peta.org/recipes/easy-vegan-pad-thai/"),
-				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 50, "Pad Thai", "http://www.peta.org/recipes/easy-vegan-pad-thai/"),
-				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 40, "Pad Thai", "http://www.peta.org/recipes/easy-vegan-pad-thai/"),
+				new Dish("http://api.ning.com/files/ZhVsrLD0Lni6SzTdeOxNF6AywRv3UXiOm83QttHL3tEDFTsVN11nDiyvGl-phcHo0SUxpJTlK6nwETNh*pKPLIOmxz3PKjE9/lentilsoup550x376.jpg", 80, "Lentills soup", "http://community.healthywomen.org/profiles/blogs/top-5-vegan-foods-for-building-muscles"),
+				new Dish("http://thehealthyapple.com/wp-content/uploads/2012/11/vegan-quinoa-salad11.jpg", 70, "cranberry quinoa salad", "http://thehealthyapple.com/cranberry-quinoa-salad-with-dairy-free-caesar-dressing/"),
+				new Dish("http://i.huffpost.com/gen/1963232/images/o-VEGAN-DESSERTS-facebook.jpg", 40, "PEANUT BUTTER S’MOREOS", "http://minimalistbaker.com/peanut-butter-smoreos/"),
 				new Dish("http://www.peta.org/wp-content/uploads/2013/10/580_2D00_vegandonuts.JPG", 30, "Donuts", "http://www.peta.org/living/food/baked-vegan-doughnuts/")
 		});
 		recyclerView.setAdapter(adapter);
