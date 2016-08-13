@@ -46,11 +46,11 @@ public class MainActivity extends AppCompatActivity {
 		recyclerView.setAdapter(adapter);
 
 		adapter = new MyAdapter(new Dish[]{
-				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 100, "Pad Thai"),
-				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 80, "Pad Thai"),
-				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 50, "Pad Thai"),
-				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 40, "Pad Thai"),
-				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 30, "Pad Thai")
+				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 100, "Pad Thai", "http://www.peta.org/recipes/easy-vegan-pad-thai/"),
+				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 80, "Pad Thai", "http://www.peta.org/recipes/easy-vegan-pad-thai/"),
+				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 50, "Pad Thai", "http://www.peta.org/recipes/easy-vegan-pad-thai/"),
+				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 40, "Pad Thai", "http://www.peta.org/recipes/easy-vegan-pad-thai/"),
+				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 30, "Pad Thai", "http://www.peta.org/recipes/easy-vegan-pad-thai/")
 		});
 		recyclerView.setAdapter(adapter);
 

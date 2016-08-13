@@ -8,21 +8,23 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
-import com.github.mikephil.charting.utils.ColorTemplate;
+import com.github.mikephil.charting.formatter.AxisValueFormatter;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 //import android.widget.ProgressBar;
 
@@ -58,10 +60,15 @@ public class DishActivity extends AppCompatActivity {
 			}
 		}).start();
 
+		TextView recipeLinkTextView = (TextView) findViewById(R.id.recipeLink);
+		recipeLinkTextView.setMovementMethod(LinkMovementMethod.getInstance());
+		recipeLinkTextView.setText(Html.fromHtml("<a href=\"" + getIntent().getDish().recepieLink + "\">Recipe</a>"));
+//		Linkify.addLinks(recipeLinkTextView, Linkify.ALL);
+
 		BarChart chart = (BarChart) findViewById(R.id.chart);
 
 		List<BarEntry> entries = new ArrayList<>();
-		entries.add(new BarEntry(0f, 30f));
+		entries.add(new BarEntry(0f, 45f));
 		entries.add(new BarEntry(1f, 40f));
 		entries.add(new BarEntry(2f, 50f));
 		entries.add(new BarEntry(3f, 40f));
@@ -95,18 +102,48 @@ public class DishActivity extends AppCompatActivity {
 		data.setBarWidth(0.9f); // set custom bar width
 		chart.setData(data);
 		chart.setFitBars(true); // make the x-axis fit exactly all bars
-		Legend l = chart.getLegend();
-//		l.setDrawInside(true);
-//		l.setFormSize(10f); // set the size of the legend forms/shapes
-		l.setForm(Legend.LegendForm.SQUARE); // set what type of form/shape should be used
-		l.setPosition(Legend.LegendPosition.BELOW_CHART_CENTER);
-		l.setTextSize(12f);
-		l.setTextColor(Color.BLACK);
-		l.setXEntrySpace(5f); // set the space between the legend entries on the x-axis
-		l.setYEntrySpace(5f); // set the space between the legend entries on the y-axis
-//
-//		// set custom labels and colors
-		l.setCustom(colorTemplate, new String[] { "Iron", "Fat", "Carb", "Prot", "Calc", "Fiber"});
+		chart.getLegend().setCustom(new int[0], new String[0]);
+		chart.setDescription("");
+
+		final String[] quarters = new String[]{"Iron", "Fat", "Carb", "Prot", "Calc", "Fiber"};
+
+		AxisValueFormatter formatter = new AxisValueFormatter() {
+			int counter = 0;
+
+			@Override
+			public String getFormattedValue(float value, AxisBase axis) {
+				counter++;
+				return quarters[(int) (value % quarters.length)];
+			}
+
+			// we don't draw numbers, so no decimal digits needed
+			@Override
+			public int getDecimalDigits() {
+				return 0;
+			}
+		};
+
+		XAxis xaxis = chart.getXAxis();
+		xaxis.setGranularity(1f); // minimum axis-step (interval) is 1
+		xaxis.setValueFormatter(formatter);
+		xaxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+//		xaxis.setAxisLineWidth(0f);
+//		xaxis.setDrawAxisLine(false);
+//		xaxis.setAxisLineColor(R.color.overlay_background);
+		xaxis.setDrawGridLines(false);
+//		xaxis.setEnabled(false);
+//		Legend l = chart.getLegend();
+////		l.setDrawInside(true);
+////		l.setFormSize(10f); // set the size of the legend forms/shapes
+//		l.setForm(Legend.LegendForm.SQUARE); // set what type of form/shape should be used
+//		l.setPosition(Legend.LegendPosition.BELOW_CHART_CENTER);
+//		l.setTextSize(12f);
+//		l.setTextColor(Color.BLACK);
+//		l.setXEntrySpace(5f); // set the space between the legend entries on the x-axis
+//		l.setYEntrySpace(5f); // set the space between the legend entries on the y-axis
+////
+////		// set custom labels and colors
+//		l.setCustom(colorTemplate, new String[] { "Iron", "Fat", "Carb", "Prot", "Calc", "Fiber"});
 
 		chart.invalidate(); // refresh
 	}
