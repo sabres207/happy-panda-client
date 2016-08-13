@@ -17,17 +17,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
+7import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.AxisValueFormatter;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 //import android.widget.ProgressBar;
 
@@ -42,6 +48,8 @@ public class StatusActivity extends AppCompatActivity {
 		setTitle("Status");
 //		progressBar = (ProgressBar) findViewById(R.id.progressBar);
 //        progressBar.setVisibility(View.GONE);
+
+		loadStatusChart();
 
 		BarChart chart = (BarChart) findViewById(R.id.chart);
 
@@ -124,6 +132,23 @@ public class StatusActivity extends AppCompatActivity {
 //		l.setCustom(colorTemplate, new String[] { "Iron", "Fat", "Carb", "Prot", "Calc", "Fiber"});
 
 		chart.invalidate(); // refresh
+	}
+
+	private void loadStatusChart() {
+		PieChart chart = (PieChart) findViewById(R.id.statusChart);
+		PieDataSet pieDataSet = new PieDataSet(Arrays.asList(new PieEntry(.7f, ""), new PieEntry(.3f, "")), "Data");
+		pieDataSet.setColors(new int[]{Color.rgb(90, 90, 90), Color.rgb(255, 255,255)});
+		chart.setData(new PieData(pieDataSet));
+		chart.setDescription("");
+		chart.setDrawCenterText(true);
+		chart.setCenterText("70%");
+
+		chart.setDrawEntryLabels(false);
+		chart.setDragDecelerationEnabled(false);
+		chart.setDrawMarkerViews(false);
+//		chart.setDra
+//		chart.set
+		chart.invalidate();
 	}
 
 	public static class Intent extends android.content.Intent {

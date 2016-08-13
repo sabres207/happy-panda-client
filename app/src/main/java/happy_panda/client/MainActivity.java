@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 80, "Pad Thai", "http://www.peta.org/recipes/easy-vegan-pad-thai/"),
 				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 50, "Pad Thai", "http://www.peta.org/recipes/easy-vegan-pad-thai/"),
 				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 40, "Pad Thai", "http://www.peta.org/recipes/easy-vegan-pad-thai/"),
-				new Dish("http://www.peta.org/wp-content/uploads/2014/03/vegan-pad-thai-e1429117378854.jpg", 30, "Pad Thai", "http://www.peta.org/recipes/easy-vegan-pad-thai/")
+				new Dish("http://www.peta.org/wp-content/uploads/2013/10/580_2D00_vegandonuts.JPG", 30, "Donuts", "http://www.peta.org/living/food/baked-vegan-doughnuts/")
 		});
 		recyclerView.setAdapter(adapter);
 
