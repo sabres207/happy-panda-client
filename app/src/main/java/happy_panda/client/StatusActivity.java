@@ -45,7 +45,7 @@ public class StatusActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.status);
-		setTitle("Status");
+		setTitle("Nutrition Status");
 //		progressBar = (ProgressBar) findViewById(R.id.progressBar);
 //        progressBar.setVisibility(View.GONE);
 
